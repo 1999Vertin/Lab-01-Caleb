@@ -323,13 +323,32 @@ ggplot(data = star_data, mapping = aes(x = x, y = y)) +
   geom_point()
 ```
 ```{marginfigure}
-Start with `dstar_data` and calculate a summary statistic that we will call `r` as the `cor`relation between `x` and `y`.
+Start with `star_data` and calculate a summary statistic that we will call `r` as the `cor`relation between `x` and `y`.
 ```
 ```{r}
 star_data %>%
   summarize(star = cor(x, y))
 ```
 4.  Plot `y` vs. `x` for the `circle` dataset. You can (and should) reuse code we introduced above, just replace the dataset name with the desired dataset. Then, calculate the correlation coefficient between `x` and `y` for this dataset. How does this value compare to the `r` of `dino`?
+
+circle
+<dbl>
+-0.06834336  	It's smaller.
+```{r}
+circle_data <- datasaurus_dozen %>%
+  filter(dataset == "circle")
+```
+```{r fig.fullwidth=TRUE}
+ggplot(data = circle_data, mapping = aes(x = x, y = y)) +
+  geom_point()
+```
+```{marginfigure}
+Start with `circle_data` and calculate a summary statistic that we will call `r` as the `cor`relation between `x` and `y`.
+```
+```{r}
+circle_data %>%
+  summarize(circle = cor(x, y))
+```
 
 🧶 ✅ ⬆️ *You should pause again, commit changes with the commit message "Added answer for Ex 4", and push. Make sure to commit and push all changed files so that your Git pane is cleared up afterwards.*
 
